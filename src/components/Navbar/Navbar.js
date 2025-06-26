@@ -1,13 +1,14 @@
 import React, { useState, useContext, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { ShopContext } from "../../context/ShopContext";
-import "./Navbar.css"; 
+import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import cartIcon from "../../assets/cart-icon.svg";
 
 const Navbar = () => {
   const [categories, setCategories] = useState(["women", "men", "kids"]);
   const [isCurrencySwitcherOpen, setCurrencySwitcherOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {
     currency,
     changeCurrency,
@@ -21,9 +22,23 @@ const Navbar = () => {
     setCurrencySwitcherOpen(false);
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  useEffect(() => {
+    const closeMenu = () => {
+      if (window.innerWidth > 992) {
+        setIsMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", closeMenu);
+    return () => window.removeEventListener("resize", closeMenu);
+  }, []);
+
   return (
     <header className="navbar">
-      <nav className="navbar-links">
+      <nav className={`navbar-links ${isMenuOpen ? "active" : ""}`}>
         {categories.map((cat) => (
           <NavLink
             key={cat}
@@ -31,6 +46,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive ? "navbar-link navbar-link-active" : "navbar-link"
             }
+            onClick={() => setIsMenuOpen(false)}
           >
             {cat.toUpperCase()}
           </NavLink>
@@ -66,6 +82,11 @@ const Navbar = () => {
             <span className="navbar-cart-badge">{getCartItemCount()}</span>
           )}
         </div>
+      </div>
+      <div className="navbar-hamburger" onClick={toggleMenu}>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </header>
   );

@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
           />
           {!product.inStock && (
             <div className="product-card-stock-overlay">
-              <span>OUT OF STOCK</span>
+              <span className="oos">OUT OF STOCK</span>
             </div>
           )}
           {product.inStock && (

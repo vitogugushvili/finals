@@ -32,6 +32,11 @@
 .product-card-out-of-stock {
   opacity: 0.5;
 }
+@media (max-width: 992px) {
+  .oos {
+    text-align: center;
+  }
+}
 .product-card-stock-overlay {
   position: absolute;
   top: 0;

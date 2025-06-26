@@ -52,3 +52,13 @@
 .confirmation-back-button:hover {
   background-color: #4caf50;
 }
+@media (max-width: 600px) {
+  .confirmation-page {
+    padding: 40px 15px;
+    margin: 20px 10px;
+    border: none;
+  }
+  .confirmation-title {
+    font-size: 24px;
+  }
+}
