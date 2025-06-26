@@ -1,0 +1,113 @@
+.cart-page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.cart-page-title {
+  font-weight: 700;
+  font-size: 32px;
+  margin-bottom: 55px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e5e5e5;
+  text-transform: uppercase;
+}
+.cart-page-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 24px 0;
+}
+.cart-page-item-details {
+  display: flex;
+  flex-direction: column;
+}
+.cart-page-brand-name {
+  font-weight: 600;
+  font-size: 30px;
+  margin: 0 0 16px 0;
+}
+.cart-page-item-name {
+  font-weight: 400;
+  font-size: 30px;
+  margin: 0 0 20px 0;
+}
+.cart-page-item-price {
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0 0 20px 0;
+}
+.cart-page-attribute-title {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 18px;
+}
+.cart-page-size-options {
+  display: flex;
+  gap: 8px;
+}
+.cart-page-size-button {
+  width: 63px;
+  height: 45px;
+  background: #fff;
+  border: 1px solid #1d1f22;
+  font-size: 16px;
+  cursor: default;
+}
+.cart-page-size-selected {
+  background: #1d1f22;
+  color: #fff;
+}
+.cart-page-quantity-and-image {
+  display: flex;
+  gap: 24px;
+}
+.cart-page-quantity-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+.cart-page-quantity-controls button {
+  width: 45px;
+  height: 45px;
+  font-size: 28px;
+  line-height: 1;
+  background: #fff;
+  border: 1px solid #1d1f22;
+  color: #1d1f22;
+  cursor: pointer;
+}
+.cart-page-item-image {
+  width: 200px;
+  height: 288px;
+  object-fit: contain;
+}
+.cart-page-summary {
+  margin-top: 32px;
+  width: 280px;
+  font-size: 24px;
+}
+.cart-page-summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.cart-page-summary-label {
+  font-weight: 400;
+}
+.cart-page-summary-value {
+  font-weight: 700;
+}
+.cart-page-order-button {
+  width: 280px;
+  height: 43px;
+  background: #5ece7b;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+}

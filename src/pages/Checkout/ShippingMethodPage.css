@@ -1,0 +1,43 @@
+.shipping-info-box {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+.shipping-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+.shipping-info-row:last-child {
+  border-bottom: none;
+}
+.shipping-info-row span:first-child {
+  color: #888;
+}
+.shipping-method-page h4 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.shipping-method-option {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+.shipping-method-option.selected {
+  border-color: #5ece7b;
+  background-color: #f0fff4;
+}
+.shipping-method-option input {
+  margin-right: 15px;
+}
+.shipping-method-price {
+  margin-left: auto;
+  font-weight: 500;
+}

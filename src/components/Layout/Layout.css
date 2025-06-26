@@ -1,0 +1,17 @@
+.overlay-backdrop {
+  position: fixed;
+  top: 80px; 
+  left: 0;
+  width: 100%;
+  height: calc(100% - 80px);
+  background-color: rgba(57, 55, 72, 0.22);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}

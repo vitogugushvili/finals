@@ -1,0 +1,32 @@
+.payment-page h4 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.payment-form-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.payment-form-header {
+  background-color: #f7f7f7;
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  font-weight: 500;
+}
+.payment-form {
+  padding: 20px;
+}
+.form-pay-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #5ece7b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.form-pay-button:disabled {
+  background-color: #a0a0a0;
+}
