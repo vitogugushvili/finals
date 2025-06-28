@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useCallback } from "react";
 import { fetchProducts } from "../api";
 
 export const ShopContext = createContext(null);
@@ -42,12 +42,12 @@ export const ShopProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  const changeCurrency = (newCurrency) => {
+  const changeCurrency = useCallback((newCurrency) => {
     const symbols = { USD: "$", EUR: "€", JPY: "¥" };
     setCurrency({ label: newCurrency, symbol: symbols[newCurrency] });
-  };
+  }, []);
 
-  const addToCart = (product, selectedSize) => {
+  const addToCart = useCallback((product, selectedSize) => {
     if (!selectedSize) {
       alert("Please select a size!");
       return;
@@ -70,9 +70,9 @@ export const ShopProvider = ({ children }) => {
       };
       return [...prevCart, productToAdd];
     });
-  };
+  }, []);
 
-  const updateCartQuantity = (productId, size, amount) => {
+  const updateCartQuantity = useCallback((productId, size, amount) => {
     setCart((prevCart) =>
       prevCart
         .map((item) =>
@@ -82,9 +82,9 @@ export const ShopProvider = ({ children }) => {
         )
         .filter((item) => item.quantity > 0)
     );
-  };
+  }, []);
 
-  const getCartTotal = () => {
+  const getCartTotal = useCallback(() => {
     return cart
       .reduce((total, item) => {
         if (!Array.isArray(item.prices)) return total;
@@ -97,22 +97,22 @@ export const ShopProvider = ({ children }) => {
         return total;
       }, 0)
       .toFixed(2);
-  };
+  }, [cart, currency.label]);
 
-  const getCartItemCount = () => {
+  const getCartItemCount = useCallback(() => {
     return cart.reduce((count, item) => count + item.quantity, 0);
-  };
+  }, [cart]);
 
-  const getGrandTotal = () => {
+  const getGrandTotal = useCallback(() => {
     const subtotal = parseFloat(getCartTotal());
     const shippingCost = shippingMethod ? shippingMethod.cost : 0;
     return (subtotal + shippingCost).toFixed(2);
-  };
+  }, [getCartTotal, shippingMethod]);
 
-  const clearCart = () => {
+  const clearCart = useCallback(() => {
     setCart([]);
     setShippingMethod({ name: "Standard", cost: 0 });
-  };
+  }, []);
 
   const value = {
     products,

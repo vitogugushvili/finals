@@ -2,10 +2,11 @@ import React, { useState, useContext } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 import { ShopContext } from "../../context/ShopContext";
 import CheckoutLayout from "./CheckoutLayout";
-import "./PaymentPage.css"; 
+import "./PaymentPage.css";
 
 const PaymentPage = () => {
-  const { shippingMethod, clearCart } = useContext(ShopContext);
+  const { cart, currency, shippingMethod, getCartTotal, clearCart } =
+    useContext(ShopContext);
   const navigate = useNavigate();
   const [cardDetails, setCardDetails] = useState({
     number: "",
@@ -35,9 +36,21 @@ const PaymentPage = () => {
       return;
     }
     setIsProcessing(true);
+
+    const orderDetails = {
+      cart: [...cart],
+      currency: { ...currency },
+      shippingMethod: { ...shippingMethod },
+      subtotal: getCartTotal(),
+      total: (
+        parseFloat(getCartTotal()) +
+        (shippingMethod?.cost > 0 ? shippingMethod.cost : 0)
+      ).toFixed(2),
+    };
+
     setTimeout(() => {
       clearCart();
-      navigate("/confirmation");
+      navigate("/confirmation", { state: { orderDetails } });
     }, 1500);
   };
 
