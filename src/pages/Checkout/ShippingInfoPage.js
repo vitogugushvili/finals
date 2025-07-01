@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShopContext } from "../../context/ShopContext";
 import CheckoutLayout from "./CheckoutLayout";
-import "./ShippingInfoPage.css"; 
+import "./ShippingInfoPage.css";
 
 const ShippingInfoPage = () => {
   const { setShippingInfo } = useContext(ShopContext);
@@ -104,8 +104,8 @@ const ShippingInfoPage = () => {
               required
             >
               <option value="USA">United States</option>
-              <option value="Canada">Canada</option>
-              <option value="Mexico">Mexico</option>
+              <option value="Japan">Japan</option>
+              <option value="Georgia">Georgia</option>
             </select>
           </div>
           {error && <p className="form-error">{error}</p>}
